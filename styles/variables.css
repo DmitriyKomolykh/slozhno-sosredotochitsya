@@ -5,6 +5,7 @@
 :root {
   /* Переменные светлой темы */
   --buttton-color: #353430;
+  --buttton-color-opacity: rgba(53, 52, 48, 0.4); 
   --heading-color: #ffc2e6;
   --heading-color-shadow: #ff0070;
   --heading-text-color: #353430;

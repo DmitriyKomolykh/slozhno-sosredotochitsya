@@ -1,6 +1,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --buttton-color:  #ff0070;
+    --buttton-color-opacity: rgba(255, 0, 112, 0.4);
     --heading-color: #DB00FF;
     --heading-color-shadow: #FF0070;
     --heading-text-color: #000028;
@@ -20,6 +21,7 @@
     чем стили в медиазапросе предпочтений пользователя
   */
   --buttton-color:  #ff0070;
+  --buttton-color-opacity: rgba(255, 0, 112, 0.4);
   --heading-color: #DB00FF;
   --heading-color-shadow: #FF0070;
   --heading-text-color: #000028;

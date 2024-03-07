@@ -24,6 +24,7 @@
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   min-block-size:100vh;
+  outline: 1px solid red;
 }
   
 .header__noteg-text  {
@@ -132,8 +133,7 @@
 /* Обводка текста и изменение прозрачности при наведении курсора*/
 .header__theme-menu-button:hover {
   box-sizing: border-box;
-  outline: 1px solid var(--buttton-color);
-  opacity: 0.4;
+  outline: 1px solid var(--buttton-color-opacity);
 }
 
 /*убираем подчеркивание текста при табуляции*/
@@ -205,8 +205,8 @@
 }
 
 .article {
-  grid-column: 2 / 3;
   display: block;
+  grid-column: 2 / 3;
 }
 
 .card-subtitle {
@@ -249,6 +249,7 @@
 }
 
 .card-item {
+  margin-top: 20px;
   color: var(--subtitle-text-color);
   font-family: inherit;
   font-weight: 400;
@@ -257,7 +258,6 @@
   letter-spacing: 0;
   text-align: left;
   background: var(--accent-color);
-  margin-top: 20px;
 }
 
 .section__type-one:nth-of-type(1) {
@@ -322,11 +322,15 @@
 /*/////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
   display: grid;
-  min-block-size: 100vh;  
+  min-block-size: 100vh;
+  outline: 1px solid red ; 
 }
 
 .heading_footer {
-  justify-self: center;
+  display: block;
+  /* justify-self: center; */
+  justify-self: left;
+  align-self: center;
   text-align: center;
   text-shadow: 2px 2px 0 var(--heading-color-shadow);
 }
@@ -413,6 +417,11 @@
 /*Заголовок Header*/
   .heading {
   margin-left: clamp(0.625rem, 1.2229rem + -2.551vw, 0rem);
+  }
+
+  .heading_footer {
+    margin-left: clamp(0.875rem, 0.5172rem + 1.5267vw, 1.25rem);
+    margin-top: 3px;
   }
 
   .header__description {

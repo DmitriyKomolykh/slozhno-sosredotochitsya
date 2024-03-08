@@ -24,32 +24,6 @@
   display: grid;
   grid-template-rows: 1fr min-content 1fr;
   min-block-size:100vh;
-  outline: 1px solid red;
-}
-  
-.header__noteg-text  {
-  position: absolute;
-  top: 20px;
-  right: 29px;
-  visibility: var(--rec-visibility);
-  color: rgb(255, 0, 112);
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 25px;
-  letter-spacing: 0;
-  text-align: center;
-}
-  
-.header__noteg-text::after  {
-  content: '';
-  position: relative;
-  display: inline-block;
-  border-radius: 50%;
-  box-shadow: 0px 0px 4px 3px rgb(255, 0, 112);
-  background: rgb(255, 0, 112);
-  inline-size: 9px;
-  block-size: 9px;
 }
 
 .decorated-zone {
@@ -81,6 +55,31 @@
   border-left: 1px solid var(--buttton-color);
   inline-size: 25px;
   block-size: 25px;
+}
+
+.header__noteg-text  {
+  position: absolute;
+  top: 20px;
+  right: 29px;
+  visibility: var(--rec-visibility);
+  color: rgb(255, 0, 112);
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0;
+  text-align: center;
+}
+  
+.header__noteg-text::after  {
+  content: '';
+  position: relative;
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0px 0px 4px 3px rgb(255, 0, 112);
+  background: rgb(255, 0, 112);
+  inline-size: 9px;
+  block-size: 9px;
 }
 
 /*//////// КНОПКИ \\\\\\\\*/
@@ -180,7 +179,6 @@
   background-color: var(--accent-color);   
 }
 
-
 /*///////////////////////////////// MAIN \\\\\\\\\\\\\\\\\\\\\\\*/
 /*//////// Карточка 1 типа \\\\\\\\*/
 .section {
@@ -203,10 +201,8 @@
   letter-spacing: 0;
   text-align: left;
 }
-
-.article {
-  display: block;
-  grid-column: 2 / 3;
+.section-title__type-one {
+  grid-row: span 2;
 }
 
 .card-subtitle {
@@ -266,27 +262,19 @@
 
 /*//////// Карточки 2 типа \\\\\\\\*/
 .section__type-two {
-  grid-row: 1 / 1;
-  grid-template: 1fr / repeat(3, 1fr);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
 }
 
-.article__a {
-  grid-column: 1 / 1;
-}
-
-.article__b {
-  grid-column: 2 / 2;
-}
-
-.article__c {
-  grid-column: 3 / 3;
+.title__type-two{
+  max-width: 260px;
+  grid-column: span 3;
 }
 
 /*//////// Карточки Картинки \\\\\\\\*/
 .section__card-picture {
-  display: grid;
-  gap: 20px;
-  margin: 80px 20px 60px;
+  margin-bottom: 60px;
   grid-template: min-content 23.83% 28.88% 39.66% / repeat(3, 1fr);
 }
 
@@ -322,22 +310,18 @@
 /*/////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 .footer {
   display: grid;
-  min-block-size: 100vh;
-  outline: 1px solid red ; 
+  min-block-size: 100vh; 
 }
 
 .heading_footer {
   display: block;
-  /* justify-self: center; */
-  justify-self: left;
+  justify-self: center;
   align-self: center;
   text-align: center;
   text-shadow: 2px 2px 0 var(--heading-color-shadow);
 }
 
-
 /*/////////////////// Медиазапросы \\\\\\\\\\\\\\\\\\\\\\\*/ 
-
 @media (width <= 1024px) {
 /*Заголовок Header*/
   .heading {
@@ -351,6 +335,21 @@
   }
 }
 
+@media (width <= 924px) {
+  .section__type-two {
+    /* display: block;
+    column-gap: 0; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+  }
+
+  .title__type-two{
+    max-width: 230px;
+    grid-column: span 2;
+  }
+
+}
 
 @media (width <= 768px) {
 /*положение кнопок на Header*/
@@ -375,20 +374,13 @@
 
 /*Положение колонок в секции второго типа*/
   .section__type-two {
-    grid-template-columns: repeat(3, 1fr);
-    grid-row: 1 /  1; 
+    display: block;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-row: 1 /  1;  */
   }
   
-  .article__a  {
-    grid-column: 1 / span 3;
-  }
-  
-  .article__b {
-    grid-column: 1 / span 3;
-  }
-  
-  .article__c {
-    grid-column: 1 / span 3;
+  .article__type-two {
+    margin-top: 20px;
   }
 
   .section__card-picture {
@@ -404,6 +396,12 @@
   }
 
 /*положение декоративных уголков на Header*/ 
+  .header__noteg-text  {
+    position: absolute;
+    top: 10px;
+    right: 19px;
+  }
+
   .decorated-zone::before {
     margin-top: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
     margin-right: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
@@ -419,18 +417,18 @@
   margin-left: clamp(0.625rem, 1.2229rem + -2.551vw, 0rem);
   }
 
-  .heading_footer {
-    margin-left: clamp(0.875rem, 0.5172rem + 1.5267vw, 1.25rem);
-    margin-top: 3px;
-  }
-
   .header__description {
     width: clamp(22.1875rem, 21.6508rem + 2.2901vw, 22.75rem);
     margin-top: clamp(-0.625rem, -0.3261rem + -1.2755vw, -0.9375rem);
     margin-right: clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem);
   }
-  
-/* Изменение свойств секций */
+
+  /*Заголовок Footer*/
+  .heading_footer {
+    margin-left: clamp(0rem, -1.1927rem + 5.0891vw, 1.25rem);
+  }
+
+  /* Изменение свойств секций */
   .section {
    display: block;
     column-gap: 0;
@@ -444,7 +442,13 @@
   .article {
     margin-top: 20px;
   }
-  
+}
+
+@media (width <= 524px) {
+  .title__type-two {
+    max-width: 260px;
+  }
+
   .section__card-picture {
     display: block;
     margin: 50px 10px 40px; 
@@ -455,10 +459,4 @@
     object-fit: contain;
     inline-size: 100%;
   }  
-
-  .header__noteg-text  {
-    position: absolute;
-    top: 10px;
-    right: 19px;
-  }
 } 
